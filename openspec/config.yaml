@@ -1,7 +1,7 @@
 schema: spec-driven
 
 context: |
-  Humanify reworks AI-generated text so it reads as if a specific named person wrote it.
+  humanify reworks AI-generated text so it reads as if a specific named person wrote it.
   See README.md for the founding document.
 
   THE EXPERIMENT: this project is built by natural-language programming. The owner never

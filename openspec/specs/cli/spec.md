@@ -1,7 +1,7 @@
 # CLI
 
 ## Purpose
-Everything is reachable from the command line, scriptable with `--json`, so the owner can run and evaluate Humanify without reading code.
+Everything is reachable from the command line, scriptable with `--json`, so the owner can run and evaluate humanify without reading code.
 
 ## Requirements
 

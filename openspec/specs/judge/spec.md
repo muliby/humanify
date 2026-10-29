@@ -56,4 +56,4 @@ The system SHALL return pass/fail, all scores, and a short natural-language diag
 - Integration: calibration on the fixture corpus; generic draft fails.
 
 ## Acceptance
-- Humanify's output for the owner's corpus passes AV at a rate at least equal to the owner's real held-out Documents (founding doc §6).
+- humanify's output for the owner's corpus passes AV at a rate at least equal to the owner's real held-out Documents (founding doc §6).

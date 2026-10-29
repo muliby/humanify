@@ -1,15 +1,15 @@
-# Humanify — Founding Document
+# humanify — Founding Document
 
 *Status: draft v0.1 — 2026-10-29*
 
-## 1. What Humanify is
+## 1. What humanify is
 
-Humanify takes two inputs:
+humanify takes two inputs:
 
 1. **AI-generated content** — a blog post, an article, a slide deck, an email, any text.
 2. **A person** — a real human, ideally with a public online footprint (blog, papers, talks, LinkedIn/X posts, newsletters).
 
-It reworks the content so that it reads as if that person wrote it. The bar is not "sounds less robotic"; it is **indistinguishability**: a reader familiar with the person, and an authorship-verification model, should have a hard time telling Humanify's output from the person's own writing.
+It reworks the content so that it reads as if that person wrote it. The bar is not "sounds less robotic"; it is **indistinguishability**: a reader familiar with the person, and an authorship-verification model, should have a hard time telling humanify's output from the person's own writing.
 
 It is *not*:
 
@@ -21,14 +21,14 @@ It is *not*:
 
 Survey of existing tools (2026-10-29):
 
-| Tool | What it does | Gap vs. Humanify |
+| Tool | What it does | Gap vs. humanify |
 |---|---|---|
 | **Spiral** (Every) — *state of the art, benchmark* | Learns your voice from samples/channels; `personalize` rewrites in your voice; `humanize` strips AI tells; MCP + CLI. $15/mo personal. | First-person only (you upload your own samples); short-form leaning; no automatic corpus collection from a named person's public footprint; no measured "hard to tell" score. |
 | ContentIn, LinkedGrow, Postessia, Apify LinkedIn Voice Trainer | Train a voice profile from LinkedIn posts, generate new posts | LinkedIn-only; generation, not reworking of long/structured content |
 | Jasper / Writer / Copy.ai brand voice, HyperWrite style rewriter | Tone presets, famous-author imitation | Not a specific individual; shallow |
 | RewriteAI, Undetectable-style humanizers | Generic human-sounding, detector evasion | No target person at all |
 
-Humanify's three differentiators:
+humanify's three differentiators:
 
 1. **Automatic voice-profile construction** from a person's whole public footprint, not pasted samples.
 2. **Reworking long, structured content** (decks, articles, docs) while preserving structure and meaning.
@@ -38,7 +38,7 @@ Research to lean on: STRAP, STYLL, low-resource authorship style transfer with i
 
 ## 3. The experiment: natural-language programming
 
-Humanify is also an experiment: **build it without ever reading the generated code, in any language.**
+humanify is also an experiment: **build it without ever reading the generated code, in any language.**
 
 ### Process stack
 
@@ -91,13 +91,13 @@ Humanify is also an experiment: **build it without ever reading the generated co
 **Spiral is the state of the art to compare against.** Protocol:
 
 1. Same AI-written draft.
-2. Same corpus of Muli's public writing as samples (for Spiral: uploaded as Writing Style samples; for Humanify: ingested from URLs).
-3. Run Spiral `personalize` and Humanify.
+2. Same corpus of Muli's public writing as samples (for Spiral: uploaded as Writing Style samples; for humanify: ingested from URLs).
+3. Run Spiral `personalize` and humanify.
 4. Score both with the same authorship-verification model against held-out posts; plus a blind read of 3 samples each.
 
 ## 6. First acceptance test (the spec's teeth)
 
-> Given an AI-written draft and the corpus from mulix.org, the authorship-verification model must classify Humanify's output as *same author* at ≥ the rate it classifies Muli's actual held-out posts; and a blind reader presented with 3 Humanify outputs mixed with 3 real posts must score ≤ chance.
+> Given an AI-written draft and the corpus from mulix.org, the authorship-verification model must classify humanify's output as *same author* at ≥ the rate it classifies Muli's actual held-out posts; and a blind reader presented with 3 humanify outputs mixed with 3 real posts must score ≤ chance.
 
 ---
 
@@ -122,7 +122,7 @@ JOURNAL.md              # the experiment's log
 ## A.1 `openspec/project.md` (the "arrangement")
 
 ```markdown
-# Humanify — project context
+# humanify — project context
 
 ## Purpose
 Rework AI-generated text so it reads as if a specific named person wrote it.
@@ -338,7 +338,7 @@ so thresholds are relative to the person, not absolute.
 - Integration: the person's own held-out texts pass at ≥ 80%; a generic LLM draft fails.
 
 ## Acceptance tests
-- See founding doc §6: Humanify output passes AV at ≥ the rate of the person's real held-out posts.
+- See founding doc §6: humanify output passes AV at ≥ the rate of the person's real held-out posts.
 ```
 
 ## A.7 `openspec/specs/cli.md` (draft)

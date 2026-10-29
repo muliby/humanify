@@ -1,4 +1,4 @@
-# Humanify — agent instructions
+# humanify — agent instructions
 
 Read openspec/config.yaml first; its `context` block is the project contract.
 
