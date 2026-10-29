@@ -1,0 +1,43 @@
+schema: spec-driven
+
+context: |
+  Humanify reworks AI-generated text so it reads as if a specific named person wrote it.
+  See README.md for the founding document.
+
+  THE EXPERIMENT: this project is built by natural-language programming. The owner never
+  reads or edits anything under src/. The owner only edits openspec/, tests/ and JOURNAL.md.
+  Every behaviour must therefore be fully specified in openspec/specs and verified by tests;
+  "it works, trust me" is never an acceptable completion report.
+
+  Tech stack (change only via a change proposal):
+  - Python 3.12 managed with uv; package name `humanify` under src/humanify/
+  - CLI: typer. Config: pydantic-settings. Storage: SQLite via sqlite3 stdlib.
+  - LLM: Anthropic SDK; model name read from config (default claude-sonnet-4-5).
+  - Embeddings / authorship verification: sentence-transformers, local models by default.
+  - Tests: pytest (no network in unit tests; LLM calls are recorded fixtures). Lint: ruff.
+  - Commands: `uv run pytest -q`, `uv run ruff check src tests`, `uv run humanify --help`.
+
+  Conventions:
+  - Every public function has type hints and a docstring.
+  - Every capability spec has acceptance scenarios; tasks.md must map each scenario to a test.
+  - For any third-party library whose API the agent is not certain of, write a reference note
+    in openspec/specs/refs/<lib>.md (data, not generated code) before using it.
+  - Never add facts, quotes or claims to rewritten text that are absent from the source.
+
+rules:
+  proposal:
+    - State explicitly what is out of scope
+    - Name the acceptance scenarios this change will make pass
+  tasks:
+    - Every task that adds behaviour names the test that proves it
+    - Final task of every change is "run full test suite and lint; report counts"
+
+operations:
+  apply:
+    guidance:
+      - Do not ask the owner to look at code; describe behaviour and test results instead
+      - If a spec is ambiguous, stop and propose a spec clarification rather than guessing
+      - Append a dated entry to JOURNAL.md describing where the spec was insufficient
+  archive:
+    guidance:
+      - Summarize which scenarios now pass and which tests cover them
