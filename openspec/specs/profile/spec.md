@@ -48,6 +48,10 @@ The system SHALL split each person's corpus deterministically into 80% working a
 ### Requirement: Persistence
 Profiles SHALL be stored per person and reused across runs; `person build` rebuilds them.
 
+#### Scenario: Profile reused
+- **WHEN** `humanify rewrite` runs after `person build`
+- **THEN** no profile is rebuilt and the stored profile is used
+
 ## Implementation constraints
 - Features MUST be computed with deterministic code, never by asking the LLM.
 - Embedding model MUST be local (sentence-transformers) by default; the model name is config.

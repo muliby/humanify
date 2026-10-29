@@ -38,6 +38,11 @@ The rewrite prompt SHALL include the style guide, the k=8 most similar exemplars
 ### Requirement: Chunking
 Inputs longer than a configured limit SHALL be rewritten section by section with a running summary passed between chunks for consistency.
 
+#### Scenario: Long input chunked
+- **GIVEN** a 6,000-word Markdown draft and a chunk limit of 1,500 words
+- **WHEN** it is rewritten
+- **THEN** at least four LLM calls are made and the output keeps all headings in order
+
 ### Requirement: Iteration with judge feedback
 The system SHALL support regeneration with judge feedback injected into the prompt, up to N attempts (default 3), keeping the best-scoring attempt.
 

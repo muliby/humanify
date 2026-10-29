@@ -29,6 +29,10 @@ Every command SHALL accept `--json` and then print a single JSON object and noth
 ### Requirement: Exit codes
 Commands SHALL exit 0 on success, 1 on usage error, 2 on a failed judge verdict.
 
+#### Scenario: Failed verdict exits 2
+- **WHEN** `humanify judge` returns a fail verdict
+- **THEN** the process exits with code 2
+
 ## Later changes (out of scope for v0)
 - MCP server exposing rewrite and judge.
 - PPTX and DOCX round-tripping.

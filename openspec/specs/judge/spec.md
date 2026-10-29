@@ -26,6 +26,10 @@ The system SHALL compute an AV score for a candidate against the person's held-o
 ### Requirement: Human-likeness
 The system SHALL compute perplexity under a local reference LM and an AI-detector probability.
 
+#### Scenario: Scores reported
+- **WHEN** any candidate is judged
+- **THEN** the result includes a perplexity value and an AI-detector probability in [0,1]
+
 ### Requirement: Calibrated threshold
 The threshold SHALL be derived per person from calibration (default: the 20th percentile of own held-out AV scores), not a global constant.
 
